@@ -1,0 +1,4 @@
+# requirements.txt
+mistralai==1.1.0
+supabase==2.7.4
+numpy==1.26.4
