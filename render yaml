@@ -2,8 +2,9 @@
 services:
   - type: web
     name: autonomous-task-agent
-    env: docker
-    dockerfilePath: ./Dockerfile
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python src/main.py
     region: oregon # Change to your preferred region
     plan: free # Or starter/pro depending on needs
     envVars:
