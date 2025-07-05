@@ -1,0 +1,33 @@
+# render.yaml
+services:
+  - type: web
+    name: autonomous-task-agent
+    env: docker
+    dockerfilePath: ./Dockerfile
+    region: oregon # Change to your preferred region
+    plan: free # Or starter/pro depending on needs
+    envVars:
+      - key: MISTRAL_API_KEY
+        sync: false # Set manually in Render dashboard
+      - key: SUPABASE_URL
+        sync: false # Set manually or use DATABASE_URL
+      - key: SUPABASE_KEY
+        sync: false # Set manually
+      - key: DATABASE_URL
+        fromDatabase:
+          name: task-agent-db
+          property: connectionString
+      - key: OBJECTIVE
+        value: Solve world hunger.
+      - key: YOUR_TABLE_NAME
+        value: documents
+      - key: YOUR_FIRST_TASK
+        value: Develop a task list.
+    autoDeploy: true
+
+databases:
+  - name: task-agent-db
+    databaseName: task_agent_db
+    plan: free # Or starter/pro
+    region: oregon # Match web service region
+    postgresMajorVersion: 15
