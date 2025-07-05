@@ -1,7 +1,9 @@
 # src/agents.py
 from typing import Dict, List
+from collections import deque
 from mistralai import Mistral
-from src.config import MISTRAL_API_KEY, supabase
+from src.configs import MISTRAL_API_KEY
+from src.database import supabase
 import numpy as np
 
 mistral_client = Mistral(api_key=MISTRAL_API_KEY)

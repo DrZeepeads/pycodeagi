@@ -1,6 +1,6 @@
 # src/database.py
 from supabase import create_client, Client
-from src.config import SUPABASE_URL, SUPABASE_KEY, YOUR_TABLE_NAME
+from src.configs import SUPABASE_URL, SUPABASE_KEY, YOUR_TABLE_NAME
 import os
 
 # Use Render's PostgreSQL connection string if provided, else fallback to Supabase

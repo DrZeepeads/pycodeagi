@@ -10,7 +10,7 @@ from src.agents import (
     context_agent,
 )
 from src.database import setup_supabase_table, supabase
-from src.config import OBJECTIVE, YOUR_TABLE_NAME, YOUR_FIRST_TASK
+from src.configs import OBJECTIVE, YOUR_TABLE_NAME, YOUR_FIRST_TASK
 
 # Print OBJECTIVE
 print("\033[96m\033[1m" + "\n*****OBJECTIVE*****\n" + "\033[0m\033[0m")
@@ -74,7 +74,7 @@ while task_list and iteration < max_iterations:
         task_id_counter += 1
         new_task.update({"task_id": task_id_counter})
         add_task(new_task)
-    prioritization_agent(this_task_id)
+    prioritization_agent(this_task_id, task_list, OBJECTIVE)
 
     iteration += 1
     time.sleep(1)
